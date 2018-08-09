@@ -1,0 +1,20 @@
+<?php
+
+
+namespace App\Core;
+
+use function GuzzleHttp\Psr7\_parse_request_uri;
+
+class Request
+{
+    public static function uri()
+    {
+        return trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+
+    }
+
+    public static function method()
+    {
+        return $_SERVER['REQUEST_METHOD'];
+    }
+}
